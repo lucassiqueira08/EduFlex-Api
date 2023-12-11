@@ -34,4 +34,17 @@ describe('User Repository', () => {
       expect(result).toBe(expectedData)
     })
   })
+
+  describe('getUser', () => {
+    test('should return data', async () => {
+      const expectedData = { id: 123, name: 'John', email: 'john@example.com' }
+
+      jest
+        .spyOn(mockUserDataSource, 'getUser')
+        .mockImplementation(() => Promise.resolve(expectedData))
+
+      const result = await userRepository.getUser({ email: 'john@example.com' })
+      expect(result).toBe(expectedData)
+    })
+  })
 })

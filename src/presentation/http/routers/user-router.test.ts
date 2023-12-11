@@ -60,4 +60,37 @@ describe('User Router', () => {
       })
     })
   })
+
+  describe('GET /users/:user', () => {
+    test('should return 200 with data', async () => {
+      const expectedData = {
+        id: 123,
+        name: 'John',
+        email: 'john@example.com',
+      } as User
+      jest
+        .spyOn(mockGetUser, 'execute')
+        .mockImplementation(() => Promise.resolve(expectedData))
+
+      const response = await request(server).get(
+        `/api/users/${expectedData.email}`,
+      )
+      expect(response.status).toBe(200)
+      expect(mockGetUser.execute).toHaveBeenCalledTimes(1)
+      expect(response.body).toStrictEqual(expectedData)
+    })
+
+    test('should return 500 on use case error', async () => {
+      jest
+        .spyOn(mockGetUser, 'execute')
+        .mockImplementation(() => Promise.reject(Error()))
+
+      const response = await request(server).get(`/api/users/dsadasd`)
+      expect(response.status).toBe(500)
+      expect(mockGetUser.execute).toHaveBeenCalledTimes(1)
+      expect(response.body).toStrictEqual({
+        message: 'Error fetching users data',
+      })
+    })
+  })
 })

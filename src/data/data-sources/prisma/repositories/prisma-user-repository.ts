@@ -34,7 +34,7 @@ export class PrismaUserRepository implements IUserRepository {
         },
       },
     })
-    if (user) {
+    if (user?.id) {
       const userId = Number(user.id)
       return {
         id: userId,
