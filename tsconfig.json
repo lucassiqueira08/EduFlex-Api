@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "lib": ["ES2016"],
+    "rootDir": "./src",
+    "outDir": "./lib",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@_domain/*": ["src/domain/*"],
+      "@_presentation/*": ["src/presentation/*"],
+      "@_data/*": ["src/data/*"],
+      "@_src/*": ["src/*"]
+    },
+    "types": ["jest"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

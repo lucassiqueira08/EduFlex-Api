@@ -1,0 +1,22 @@
+name: Courses API Tests
+on: [push]
+jobs:
+    ci:
+      runs-on: ubuntu-latest
+      steps:
+      -   name: Get Code
+          uses: actions/checkout@v3
+      -   name: Setup Node
+          uses: actions/setup-node@v3
+          with:
+              node-version: '18.x'
+      - name: Install packages
+        run: npm ci
+      - name: Generate Prisma Client
+        run: npm run prebuild-local
+      - name: Run Linter
+        run: npm run lint
+      - name: Build project
+        run: npm run build
+      - name: Run Tests
+        run: npx jest --ci --coverage

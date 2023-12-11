@@ -1,0 +1,10 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "watchPathIgnorePatterns": ["./lib/*"],
+  "moduleNameMapper": {
+    "^@_domain/(.*)$": "<rootDir>/src/domain/$1",
+    "^@_presentation/(.*)$": "<rootDir>/src/presentation/$1",
+    "^@_data/(.*)$": "<rootDir>/src/data/$1"
+  }
+}
