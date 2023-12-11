@@ -1,2 +1,2 @@
-# courses-api
-courses-api
+# EduFlex-Api
+EduFlex-Api

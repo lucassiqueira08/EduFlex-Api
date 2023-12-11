@@ -1,4 +1,4 @@
-name: Courses API Tests
+name: EduFlex API Tests
 on: [push]
 jobs:
     ci:

@@ -1,7 +1,7 @@
 {
-  "name": "courses-api",
+  "name": "EduFlex-Api",
   "version": "1.0.0",
-  "description": "courses-api",
+  "description": "EduFlex-Api",
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll --collectCoverage",
